@@ -107,6 +107,7 @@
     <Content Include="Content\toastr.css" />
     <Content Include="Content\toastr.min.css" />
     <Content Include="Global.asax" />
+    <Content Include="Registro\rEvaluacion.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -191,6 +192,13 @@
     <Compile Include="Master.Master.designer.cs">
       <DependentUpon>Master.Master</DependentUpon>
     </Compile>
+    <Compile Include="Registro\rEvaluacion.aspx.cs">
+      <DependentUpon>rEvaluacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Registro\rEvaluacion.aspx.designer.cs">
+      <DependentUpon>rEvaluacion.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -205,8 +213,14 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
+    <ProjectReference Include="..\..\Desktop\PrimerParcial-YersonEscolastico-master\BLL\BLL.csproj">
+      <Project>{E9BD9919-0801-430A-821B-B8AE0C66B59F}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Desktop\PrimerParcial-YersonEscolastico-master\Entidades\Entidades.csproj">
+      <Project>{B1034A81-5F0F-4C44-82A6-7A56A19D8E18}</Project>
+      <Name>Entidades</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />

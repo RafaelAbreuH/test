@@ -62,6 +62,12 @@ namespace Parcial1_Rafael.Registro
 
         }
 
+        private bool ExisteEnLaBaseDeDatos()
+        {
+            RepositorioBase<Evaluacion> Repositorio = new RepositorioBase<Evaluacion>();
+           Evaluacion Tipos = Repositorio.Buscar(Convert.ToInt32(IdTextBox.Text));
+            return (Tipos != null);
+        }
         public void LlenarCampos(Evaluacion eva)
         {
             Limpiar();
@@ -104,17 +110,52 @@ namespace Parcial1_Rafael.Registro
 
         protected void NuevoButton_Click(object sender, EventArgs e)
         {
-
+            Limpiar();
         }
 
         protected void GuardarButton_Click(object sender, EventArgs e)
         {
+            Evaluacion eva = new Evaluacion();
+            RepositorioBase<Evaluacion> Repositorio = new RepositorioBase<Evaluacion>();
+            bool paso = false;
+
+            eva = LlenarClase();
+
+            if (Convert.ToInt32(IdTextBox.Text) == 0)
+            {
+                paso = Repositorio.Guardar(eva);
+                Limpiar();
+            }
+            else
+            {
+                if (!ExisteEnLaBaseDeDatos())
+                {
+
+                }
+                paso = Repositorio.Modificar(eva);
+                Limpiar();
+            }
+
+            if (paso)
+            {
+
+            }
 
         }
 
         protected void EliminarButton_Click(object sender, EventArgs e)
         {
+            RepositorioBase<Evaluacion> Repositorio = new RepositorioBase<Evaluacion>();
 
+            var Analisis = Repositorio.Buscar(Convert.ToInt32(IdTextBox.Text));
+
+            if (Analisis != null)
+            {
+                Repositorio.Eliminar(Convert.ToInt32(IdTextBox.Text));
+
+            }
+
+            Limpiar();
         }
     }
 }

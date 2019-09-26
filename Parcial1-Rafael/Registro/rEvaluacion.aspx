@@ -59,6 +59,8 @@
                             </div>
                         </div>
 
+
+
                         <asp:GridView ID="DetalleGridView" runat="server">
                             <Columns>
                                 <asp:BoundField HeaderText="Categoria" />
